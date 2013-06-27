@@ -134,6 +134,16 @@ i18n.prototype = {
 		return msg;
 	},
 
+	save : function (pairs) {
+		var locals =  this.locales[this.locale];
+
+		for (var key in pairs) {
+			locals[key] = pairs[key];
+		}
+		
+		this.writeFile(this.locale);
+	},
+
 	setLocale: function(locale) {
 		
 		if (!locale) return;
